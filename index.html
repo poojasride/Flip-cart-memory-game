@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filp Card Memory Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet" />
+
+    <style>
+        .font-righteous {
+            font-family: "Righteous", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-blue-100 font-sans-serif">
+    <section class="container max-w-3xl mx-auto p-2 sm:px-6 lg:px-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800">Flip Card Memory Game</h1>
+            <h3 class="text-xl font-semibold text-gray-600 mt-4">
+                A fun exercise for your brain
+            </h3>
+        </header>
+
+        <main class="bg-gray-100 rounded-2xl ring-4 ring-[#264a80]">
+            <!-- heading section -->
+            <section class="flex justify-around text-xl text-gray-600 font-bold mx-auto py-5 leading-normal">
+                <div>
+                    <h5 class="">Scores: 0/8</h5>
+                </div>
+                <div>
+                    <h5 class="">Time : 0:00</h5>
+                </div>
+            </section>
+
+            <!-- flip card section -->
+            <section class="grid grid-cols-4 gap-x-0 place-items-center text-center cursor-pointer">
+                <!-- card 1 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/api-interface-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 2 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/availability-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 3 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/cloud-acceleration-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 4 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/data-analysis-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- second set of cards -->
+                <!-- card 5 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/host-record-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 6 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/interface-control-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 7 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/mail-reception-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 8 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/mobile-app-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- third set of cards -->
+
+                <!-- card 4 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/data-analysis-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 3 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/cloud-acceleration-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 2 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/availability-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 1 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/api-interface-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- fourth set of cards -->
+
+                <!-- card 8 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/mobile-app-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 7 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/mail-reception-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 6 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/interface-control-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 5 -->
+                <div class="flip-card w-30 h-30 my-6 [perspective:1000px]">
+                    <div
+                        class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+                        <!-- Front Side -->
+                        <div
+                            class="flip-card-front absolute w-full h-full bg-[#264a80] ring-2 ring-[#264a80] rounded-xl overflow-hidden [backface-visibility:hidden] flex items-center justify-center">
+                            <img src="./img/white-question-mark-svgrepo-com.svg" alt="Avatar"
+                                class="w-auto h-18 object-cover" />
+                        </div>
+
+                        <!-- Back Side -->
+                        <div
+                            class="flip-card-back absolute w-full h-full bg-blue-100 border border-[#264a80] rounded-xl flex flex-col items-center justify-center gap-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <img src="./img/card-backside/host-record-svgrepo-com.svg" alt="Avatar"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </section>
+</body>
+
+</html>
