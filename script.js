@@ -117,7 +117,7 @@ function restartGame() {
 
 function createCardElement(card) {
   const cardEl = document.createElement("div");
-  cardEl.classList.add("flip-card", "w-full", "h-28");
+  cardEl.classList.add("flip-card", "w-full", "h-25");
   cardEl.dataset.cardId = card.id;
 
   cardEl.innerHTML = `
