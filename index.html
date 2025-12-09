@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,12 +30,16 @@
 
         <main class="max-w-lg mx-auto bg-gray-100 rounded-2xl ring-4 ring-[#264a80] p-4">
             <section class="flex justify-around text-xl text-gray-600 font-bold py-2">
-                <div id="matched-cards"><h5>Matches: 0/8</h5></div>
-                <div><h5>Time : 0:00</h5></div>
+                <div id="matched-cards">
+                    <h5>Matches: 0/8</h5>
+                </div>
+                <div id="timer">
+                    <h5>Time : 0:00</h5>
+                </div>
             </section>
 
             <!-- Cards container -->
-            <section id="card-container" 
+            <section id="card-container"
                 class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 place-items-center">
             </section>
         </main>
@@ -50,4 +55,5 @@
     <!-- Js file -->
     <script src="./script.js"></script>
 </body>
+
 </html>

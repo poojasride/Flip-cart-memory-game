@@ -55,12 +55,13 @@ function handleCardFlip(cardElement, cardId) {
       //  MATCH!
       flippedCards.forEach((card) => {
         card.classList.add("matched");
-        matchedCards += 1;
 
-        console.log(matchedCards);
+        // For machted card count
+        matchedCards += 0.5;
 
-        //the machted color change to green
-        card.querySelector(".flip-card-back").classList.add("flip-matched");
+        document.getElementById(
+          "matched-cards"
+        ).innerHTML = `Matches: ${matchedCards}/8`;
       });
       // Mark as matched
       resetBoard();
@@ -94,7 +95,7 @@ randomCards.forEach((card, index) => {
   cardElement.innerHTML = `
     <div class="flip-card-inner">
         <div class="flip-card-front">
-            <img src="./img/white-question-mark-svgrepo-com.svg" class="w-auto h-16 object-cover" />
+            <img src="./img/card-bg.svg" class="w-auto h-16 object-cover" />
         </div>
         <div class="flip-card-back">
             <img src="${card.backImg}" class="w-full h-full object-cover" />
@@ -109,3 +110,24 @@ randomCards.forEach((card, index) => {
 
   container.appendChild(cardElement);
 });
+
+function countDown() {
+  let timeLeft = 60;
+
+  setInterval(() => {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+
+    document.getElementById("timer").innerHTML = `Time : ${minutes} m ${seconds}  s `;
+
+
+    timeLeft--;
+
+    if (timeLeft < 0) {
+      clearInterval(timer);
+      document.getElementById("timer").innerHTML = "TIME UP!";
+    }
+  }, 1000);
+}
+
+countDown()
