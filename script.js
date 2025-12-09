@@ -121,7 +121,7 @@ function createCardElement(card) {
   cardEl.dataset.cardId = card.id;
 
   cardEl.innerHTML = `
-        <div class="flip-card-inner">
+        <div class="flip-card-inner cursor-pointer">
             <div class="flip-card-front"><img src="./img/card-bg.svg" class="h-16"></div>
             <div class="flip-card-back"><img src="${card.backImg}" class="h-full"></div>
         </div>
