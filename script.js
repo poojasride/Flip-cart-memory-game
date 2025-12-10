@@ -117,6 +117,7 @@ function restartGame() {
 
 function createCardElement(card) {
   const cardEl = document.createElement("div");
+  // class filp-card
   cardEl.classList.add("flip-card", "w-full", "h-25");
   cardEl.dataset.cardId = card.id;
 
@@ -151,12 +152,15 @@ function countDown() {
 }
 
 function startGame() {
+  // [] shallow copy for original arr
+
+  // 0.5 gives postive and negative value
   const randomCards = [...cardsData].sort(() => Math.random() - 0.5);
   randomCards.forEach(createCardElement);
   countDown();
 }
 
-// Init
+
 startGame();
 
 // This for Playagain section
