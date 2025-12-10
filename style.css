@@ -96,6 +96,7 @@
   border: #264a80;
 }
 
+/* default popup hidden on the screen */
 .hidden {
   display: none !important;
 }
