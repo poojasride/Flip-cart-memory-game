@@ -21,8 +21,8 @@ const cardsData = [
 
 const container = document.getElementById("card-container");
 const modal = document.getElementById("popup-modal");
-const modalMessage = document.getElementById("modal-message");
-const modalTimeScore = document.getElementById("modal-time-score");
+const modalMessage = document.getElementById("popup-message");
+const modalTimeScore = document.getElementById("popup-time-score");
 const restartButton = document.getElementById("restart-button");
 const resetGame = document.getElementById("restart-game");
 
@@ -156,7 +156,7 @@ function countDown() {
     const m = Math.floor(timeLeft / 60);
     const s = timeLeft % 60;
 
-    // This is for display the countDown
+    // This is for display the countDown and pad start add 0 
     document.getElementById("timer").innerHTML = `Time : ${m}m ${s.toString().padStart(2, "0")}s`;
 
     timeLeft--;
