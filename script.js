@@ -20,7 +20,7 @@ const cardsData = [
 ];
 
 const container = document.getElementById("card-container");
-const modal = document.getElementById("result-modal");
+const modal = document.getElementById("popup-modal");
 const modalMessage = document.getElementById("modal-message");
 const modalTimeScore = document.getElementById("modal-time-score");
 const restartButton = document.getElementById("restart-button");
@@ -33,15 +33,18 @@ let movedCards = 0;
 let timerInterval;
 let gameTime = 120;
 
-function displayModal(message, timeRemaining) {
+function displayPopupMsg(message, timeRemaining) {
   clearInterval(timerInterval);
   lockBoard = true;
 
-  const elapsed = gameTime - timeRemaining;
-  const m = Math.floor(elapsed / 60)
+  // Calculate spent time for score display
+  const spentSeconds = gameTime - timeRemaining;
+
+  // m-min s-sec
+  const m = Math.floor(spentSeconds / 60)
     .toString()
     .padStart(2, "0");
-  const s = (elapsed % 60).toString().padStart(2, "0");
+  const s = (spentSeconds % 60).toString().padStart(2, "0");
 
   modalMessage.innerHTML = message;
   modalTimeScore.innerHTML = `You made <strong>${matchedCards}</strong> matches in <strong>${m}m ${s}s</strong>!`;
@@ -49,7 +52,9 @@ function displayModal(message, timeRemaining) {
 }
 
 function handleCardFlip(cardElement, cardId) {
-  if (lockBoard) return;
+  if (lockBoard === true) return;
+
+  // Check if the card is already flipped or is the same card flipped twice
   if (
     cardElement.classList.contains("matched") ||
     flippedCards.includes(cardElement)
@@ -65,18 +70,25 @@ function handleCardFlip(cardElement, cardId) {
 
   if (flippedCards.length === 2) {
     lockBoard = true;
+
     const [card1, card2] = flippedCards;
-    const id1 = +card1.dataset.cardId;
-    const id2 = +card2.dataset.cardId;
+    const id1 = parseInt(card1.dataset.cardId);
+    const id2 = parseInt(card2.dataset.cardId);
 
     if (id1 === id2) {
       matchedCards++;
+
+      // Update a matched card count
       document.getElementById(
         "matched-cards"
       ).innerHTML = `Matches: ${matchedCards}/8`;
+
+      // Class add - Class name matched
       flippedCards.forEach((c) => c.classList.add("matched"));
+
       resetBoard();
     } else {
+      // Inactive miss matched cards
       setTimeout(() => {
         flippedCards.forEach((c) =>
           c.querySelector(".flip-card-inner").classList.remove("flip-active")
@@ -95,8 +107,11 @@ function resetBoard() {
     const timerText = document
       .getElementById("timer")
       .textContent.match(/\d+m \d+s/)[0];
+
     const [min, sec] = timerText.match(/\d+/g).map(Number);
-    displayModal("🏅CONGRATS! YOUR WIN THE GAME! 🎉", min * 60 + sec);
+
+    //  min * 60 + sec = total secound in timer;
+    displayPopupMsg("🏅CONGRATS! YOUR WIN THE GAME! 🎉", min * 60 + sec);
   }
 }
 
@@ -137,16 +152,19 @@ function countDown() {
 
   timerInterval = setInterval(() => {
     if (lockBoard) return;
+
     const m = Math.floor(timeLeft / 60);
     const s = timeLeft % 60;
-    document.getElementById("timer").innerHTML = `Time : ${m}m ${s
-      .toString()
-      .padStart(2, "0")}s`;
+
+    // This is for display the countDown
+    document.getElementById("timer").innerHTML = `Time : ${m}m ${s.toString().padStart(2, "0")}s`;
 
     timeLeft--;
+    
     if (timeLeft < 0) {
       clearInterval(timerInterval);
-      displayModal("⏰ TIME’S UP! YOU’LL ROCK IT NEXT TIME! 🌟", 0);
+    displayPopupMsg("⏰ TIME'S UP! YOU'LL ROCK IT NEXT TIME! 🌟", 0)
+
     }
   }, 1000);
 }
@@ -159,7 +177,6 @@ function startGame() {
   randomCards.forEach(createCardElement);
   countDown();
 }
-
 
 startGame();
 
